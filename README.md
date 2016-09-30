@@ -1,2 +1,3 @@
-# angular2-webpack-starter
-Angular2 Webpack Starter
+# Angular2 Webpack Starter
+
+Starter project for your next Angular2 application.
