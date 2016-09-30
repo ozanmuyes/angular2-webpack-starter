@@ -1,3 +1,3 @@
-# Angular2 Webpack Starter
+# Boycott Mobil Sadakat Uygulaması
 
-Starter project for your next Angular2 application.
+Cafe sistemi için mobil müşteri uygulaması
