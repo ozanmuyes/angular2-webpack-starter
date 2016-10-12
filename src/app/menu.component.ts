@@ -18,11 +18,10 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.menuService.getMenuItems().then((data: Item[]) => {
-      for (let datum of data) {
-        this.items.push(new Item(datum.id, datum.name));
-      }
-    });
+    this.menuService.getMenuItems().subscribe(
+      data => this.items = data,
+      error => console.error(error)
+    );
   }
 
   order(item: Item) {
