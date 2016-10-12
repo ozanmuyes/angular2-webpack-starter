@@ -1,5 +1,4 @@
-import {Component} from "@angular/core";
-import {Response} from "@angular/http";
+import {Component, Input, OnInit} from "@angular/core";
 
 import {Item} from "./item";
 import {MenuService} from "./menu.service";
@@ -12,18 +11,21 @@ import {MenuService} from "./menu.service";
     MenuService,
   ]
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
   items: Item[] = [];
 
   constructor(private menuService: MenuService) {
-    menuService.getMenuItems().then((data: Item[]) => {
+  }
+
+  ngOnInit(): void {
+    this.menuService.getMenuItems().then((data: Item[]) => {
       for (let datum of data) {
         this.items.push(new Item(datum.id, datum.name));
       }
     });
   }
 
-  order(item : Item) {
+  order(item: Item) {
     console.log(item.name + ' ordered');
 
     // TODO Make POST request to server
