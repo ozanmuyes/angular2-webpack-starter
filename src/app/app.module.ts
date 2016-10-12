@@ -4,7 +4,6 @@ import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 import {MenuComponent} from './menu.component';
-import {MenuService} from "./menu.service";
 
 @NgModule({
   imports: [
@@ -15,9 +14,9 @@ import {MenuService} from "./menu.service";
     AppComponent,
     MenuComponent,
   ],
-  providers: [
-    MenuService,
-  ],
+  // providers: [
+  //   MenuService,
+  // ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
