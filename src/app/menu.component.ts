@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 
-import {Item} from "./item";
+import {MenuItem} from "./menu-item";
 import {MenuService} from "./menu.service";
 
 @Component({
@@ -12,7 +12,7 @@ import {MenuService} from "./menu.service";
   ]
 })
 export class MenuComponent implements OnInit {
-  items: Item[] = [];
+  items: MenuItem[] = [];
 
   constructor(private menuService: MenuService) {
   }
@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
     );
   }
 
-  order(item: Item) {
+  order(item: MenuItem) {
     console.log(item.name + ' ordered');
 
     // TODO Make POST request to server

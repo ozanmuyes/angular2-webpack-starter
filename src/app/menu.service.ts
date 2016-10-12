@@ -1,19 +1,19 @@
 import {Http, Response} from "@angular/http";
 
-import {Item} from "./item";
+import {MenuItem} from "./menu-item";
 import {Observable} from "rxjs/Observable";
 import {Injectable} from "@angular/core";
 
 @Injectable()
 export class MenuService {
-  private url: string = 'http://localhost:3000/users';
+  private url: string = 'http://localhost:3000/menu';
 
   constructor(private http: Http) {
   }
 
-  getMenuItems(): Observable<Item[]> {
+  getMenuItems(): Observable<MenuItem[]> {
     return this.http.get(this.url)
-      .map((data) => data.json())
+      .map(data => data.json())
       .catch(this.handleError);
   }
 
