@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 
 import '../../public/css/styles.css';
+import {IntraconnectivityService} from "./intraconnectivity/intraconnectivity.service";
+import {Intraconnectable} from "./intraconnectivity";
 
 @Component({
   selector: 'my-app',

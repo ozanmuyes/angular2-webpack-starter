@@ -2,6 +2,8 @@ import {Component, OnInit} from "@angular/core";
 
 import {MenuItem} from "./menu-item";
 import {MenuService} from "./menu.service";
+import {IntraconnectivityService} from "./intraconnectivity/intraconnectivity.service";
+import {Intraconnectable} from "./intraconnectivity";
 
 @Component({
   selector: 'app-menu',
@@ -14,7 +16,10 @@ import {MenuService} from "./menu.service";
 export class MenuComponent implements OnInit {
   items: MenuItem[] = [];
 
-  constructor(private menuService: MenuService) {
+  constructor(
+    private ic: IntraconnectivityService,
+    private menuService: MenuService
+  ) {
   }
 
   ngOnInit(): void {
@@ -28,5 +33,9 @@ export class MenuComponent implements OnInit {
     console.log(item.name + ' ordered');
 
     // TODO Make POST request to server
+
+    this.ic.getFeaturesToPush('order').forEach((nextModule: Intraconnectable) => {
+      nextModule.getInput(item);
+    });
   }
 }
